@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Catalyst Trading Desk</title>
+<style>
+:root{--bg:#0a0e1a;--s:#111827;--s2:#1a2234;--bd:#1f2d45;--ac:#3b82f6;--ac2:#6366f1;--gn:#10b981;--rd:#ef4444;--yw:#f59e0b;--tx:#e2e8f0;--mt:#64748b;--cd:#151e2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sans-serif;font-size:13px;min-height:100vh}
+.hdr{background:var(--s);border-bottom:1px solid var(--bd);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.li{width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#6366f1);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.ln{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.ls{font-size:11px;color:var(--mt)}
+.live{display:flex;align-items:center;gap:6px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--gn)}
+.dot{width:6px;height:6px;background:var(--gn);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.main{padding:20px 24px;max-width:1500px;margin:0 auto}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.g7{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:16px}
+.g2{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
+.g22{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:1100px){.g7{grid-template-columns:repeat(4,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.g7,.g4,.g2,.g22{grid-template-columns:1fr}}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:16px}
+.ch{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--mt);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.chd{width:6px;height:6px;border-radius:50%}
+.stat{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:16px}
+.sl{font-size:11px;color:var(--mt);margin-bottom:6px}
+.sv{font-size:26px;font-weight:800;letter-spacing:-1px}
+.sv.b{color:var(--ac)}.sv.g{color:var(--gn)}.sv.r{color:var(--rd)}.sv.w{color:var(--tx)}
+.sc{font-size:11px;color:var(--mt);margin-top:3px}
+.sc.u{color:var(--gn)}.sc.d{color:var(--rd)}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pi{background:var(--s2);border-radius:8px;padding:11px 13px}
+.pt{font-size:10px;color:var(--mt);font-weight:700;letter-spacing:.5px;margin-bottom:5px}
+.pv{font-size:17px;font-weight:800}
+.pc{font-size:11px;margin-top:2px}
+.pc.u{color:var(--gn)}.pc.d{color:var(--rd)}.pc.f{color:var(--mt)}
+.ag{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:14px;position:relative;overflow:hidden}
+.ag::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.ag.aa::before{background:linear-gradient(90deg,#3b82f6,#6366f1)}
+.ag.ab::before{background:linear-gradient(90deg,#ef4444,#f97316)}
+.ag.agm::before{background:linear-gradient(90deg,#f59e0b,#eab308)}
+.ag.ad::before{background:linear-gradient(90deg,#06b6d4,#3b82f6)}
+.ag.ae::before{background:linear-gradient(90deg,#8b5cf6,#6366f1)}
+.ag.az::before{background:linear-gradient(90deg,#10b981,#06b6d4)}
+.ag.aet::before{background:linear-gradient(90deg,#f43f5e,#ef4444)}
+.at{display:flex;justify-content:space-between;align-items:flex-start}
+.an{font-size:14px;font-weight:800}
+.ar{font-size:10px;color:var(--mt);margin-top:1px}
+.ap{font-size:22px;font-weight:800;color:var(--ac)}
+.apl{font-size:9px;color:var(--mt)}
+.ab2{display:flex;gap:12px;margin-top:10px;padding-top:8px;border-top:1px solid var(--bd)}
+.av{font-size:13px;font-weight:700}.al{font-size:10px;color:var(--mt)}
+.vg{color:var(--gn)}.vr{color:var(--rd)}
+.sect{font-size:11px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:1px;margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+.sect::after{content:'';flex:1;height:1px;background:var(--bd)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--mt);padding:8px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid rgba(31,45,69,.5);font-size:12px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(59,130,246,.03)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700}
+.tag.win{background:rgba(16,185,129,.15);color:var(--gn)}
+.tag.loss{background:rgba(239,68,68,.15);color:var(--rd)}
+.tag.open{background:rgba(59,130,246,.15);color:var(--ac)}
+.empty{text-align:center;padding:40px;color:var(--mt)}
+.ei{font-size:32px;margin-bottom:8px}
+.lb-r{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(31,45,69,.4)}
+.lb-r:last-child{border-bottom:none}
+.lb-rk{width:20px;font-size:12px;font-weight:800;color:var(--mt)}
+.lb-rk.gold{color:#f59e0b}.lb-rk.silver{color:#94a3b8}.lb-rk.bronze{color:#b45309}
+.lb-n{flex:1;font-size:12px;font-weight:700}
+.lb-b{width:80px;height:5px;background:var(--bd);border-radius:3px;overflow:hidden}
+.lb-f{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:3px}
+.lb-p{font-size:14px;font-weight:800;color:var(--ac);min-width:38px;text-align:right}
+.sr{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(31,45,69,.4)}
+.sr:last-child{border-bottom:none}
+.sn{width:180px;font-size:12px}
+.sb{flex:1;height:6px;background:var(--bd);border-radius:3px;overflow:hidden}
+.sf{height:100%;border-radius:3px}
+.sg{background:var(--gn)}.sy{background:var(--yw)}.srd{background:var(--rd)}
+.sp{width:36px;text-align:right;font-size:12px;font-weight:700}
+.st{width:70px;text-align:right;font-size:10px;color:var(--gn)}
+.ctrl{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--gn);margin-bottom:12px;line-height:1.6}
+.note{font-size:10px;color:var(--mt);text-align:center;padding:16px 0}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid var(--bd);border-top-color:var(--ac);border-radius:50%;animation:sp .8s linear infinite;vertical-align:middle}
+@keyframes sp{to{transform:rotate(360deg)}}
+.fg-bar{display:flex;align-items:center;gap:8px;margin-top:4px}
+.fg-track{flex:1;height:8px;background:linear-gradient(90deg,#ef4444,#f59e0b,#10b981);border-radius:4px;position:relative}
+.fg-needle{position:absolute;top:-3px;width:2px;height:14px;background:white;border-radius:1px;transform:translateX(-50%);transition:left .5s}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">
+    <div class="li">⚡</div>
+    <div>
+      <div class="ln">Catalyst Trading Desk</div>
+      <div class="ls">7 Agents · Paper Trading · $15,000 starting capital</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="live"><div class="dot"></div>LIVE DATA</div>
+    <div style="font-size:11px;color:var(--mt)" id="ts">Loading...</div>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="sect">📊 Portfolio Overview</div>
+<div class="g4">
+  <div class="stat"><div class="sl">Total Portfolio Value</div><div class="sv w" id="totalVal">$15,000.00</div><div class="sc">Starting capital: $15,000</div></div>
+  <div class="stat"><div class="sl">Realized P&amp;L</div><div class="sv g" id="pnlVal">$0.00</div><div class="sc u" id="pnlPct">+0.00% all time</div></div>
+  <div class="stat"><div class="sl">Cash Available</div><div class="sv b" id="cashVal">$15,000.00</div><div class="sc">Min floor: $3,000 (20%)</div></div>
+  <div class="stat"><div class="sl">Open Positions</div><div class="sv w" id="posCount">0</div><div class="sc" id="tcnt">Total trades executed: 0</div></div>
+</div>
+
+<div class="sect">🌍 Live Market Prices</div>
+<div class="card">
+  <div class="prices" id="priceGrid">
+    <div class="pi"><div class="pt">BTC/USD</div><div class="pv" id="pBTC"><span class="spin"></span></div><div class="pc f" id="cBTC">loading...</div></div>
+    <div class="pi"><div class="pt">ETH/USD</div><div class="pv" id="pETH"><span class="spin"></span></div><div class="pc f" id="cETH">loading...</div></div>
+    <div class="pi"><div class="pt">SOL/USD</div><div class="pv" id="pSOL"><span class="spin"></span></div><div class="pc f" id="cSOL">loading...</div></div>
+    <div class="pi"><div class="pt">XRP/USD</div><div class="pv" id="pXRP"><span class="spin"></span></div><div class="pc f" id="cXRP">loading...</div></div>
+    <div class="pi"><div class="pt">BNB/USD</div><div class="pv" id="pBNB"><span class="spin"></span></div><div class="pc f" id="cBNB">loading...</div></div>
+    <div class="pi"><div class="pt">GOLD (XAU/USD)</div><div class="pv" id="pGOLD"><span class="spin"></span></div><div class="pc f">spot price</div></div>
+    <div class="pi"><div class="pt">Crypto Fear &amp; Greed</div><div class="pv" id="pFG"><span class="spin"></span></div><div class="pc f" id="cFG">loading...</div><div class="fg-bar" id="fgBar" style="display:none"><div class="fg-track"><div class="fg-needle" id="fgNeedle"></div></div></div></div>
+    <div class="pi"><div class="pt">Global Crypto Mkt Cap</div><div class="pv" id="pMCAP"><span class="spin"></span></div><div class="pc f" id="cMCAP">loading...</div></div>
+  </div>
+</div>
+
+<div class="sect">🤖 Agent Status &amp; Points</div>
+<div class="g7" id="agentGrid">
+  <div class="ag aa"><div class="at"><div><div class="an">⚡ Alpha</div><div class="ar">Senior Analyst</div></div><div><div class="ap" id="ptAlpha">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av vg" id="wAlpha">0</div><div class="al">Wins</div></div><div><div class="av vr" id="lAlpha">0</div><div class="al">Losses</div></div><div><div class="av" id="cAlpha">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag ab"><div class="at"><div><div class="an">⚖️ Beta</div><div class="ar">Trade Reviewer</div></div><div><div class="ap" id="ptBeta">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av vg" id="wBeta">0</div><div class="al">Approved</div></div><div><div class="av vr" id="lBeta">0</div><div class="al">Rejected</div></div><div><div class="av" id="cBeta">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag agm"><div class="at"><div><div class="an">🟠 Gamma</div><div class="ar">Trade Manager</div></div><div><div class="ap" id="ptGamma">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av" id="wGamma">0</div><div class="al">Exits</div></div><div><div class="av" id="lGamma">0</div><div class="al">Trails</div></div><div><div class="av" id="cGamma">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag ad"><div class="at"><div><div class="an">🔵 Delta</div><div class="ar">Sentiment</div></div><div><div class="ap" id="ptDelta">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av" id="wDelta">0</div><div class="al">Alerts</div></div><div><div class="av" id="lDelta">0</div><div class="al">News</div></div><div><div class="av" id="cDelta">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag ae"><div class="at"><div><div class="an">🟣 Epsilon</div><div class="ar">Risk Guard</div></div><div><div class="ap" id="ptEpsilon">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av" id="wEpsilon">—</div><div class="al">Risk Score</div></div><div><div class="av" id="lEpsilon">0</div><div class="al">Blocks</div></div><div><div class="av" id="cEpsilon">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag az"><div class="at"><div><div class="an">🟡 Zeta</div><div class="ar">Macro</div></div><div><div class="ap" id="ptZeta">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av" id="wZeta">0</div><div class="al">Warnings</div></div><div><div class="av" id="lZeta">—</div><div class="al">Regime</div></div><div><div class="av" id="cZeta">0</div><div class="al">🏆</div></div></div></div>
+  <div class="ag aet"><div class="at"><div><div class="an">🔴 Eta</div><div class="ar">Performance</div></div><div><div class="ap" id="ptEta">0</div><div class="apl">weekly pts</div></div></div><div class="ab2"><div><div class="av" id="wEta">0</div><div class="al">Reports</div></div><div><div class="av" id="lEta">—</div><div class="al">Sharpe</div></div><div><div class="av" id="cEta">0</div><div class="al">🏆</div></div></div></div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="ch"><div class="chd" style="background:var(--ac)"></div>Open Positions</div>
+    <div id="posTable"><div class="empty"><div class="ei">📭</div><div>No open positions yet</div><div style="font-size:11px;margin-top:4px;color:var(--mt)">First live cycle: Monday April 14, 9:30 AM ET</div></div></div>
+  </div>
+  <div class="card">
+    <div class="ch"><div class="chd" style="background:var(--yw)"></div>🏆 Weekly Leaderboard</div>
+    <div id="leaderboard">
+      <div class="lb-r"><div class="lb-rk gold">1</div><div class="lb-n">Alpha</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk silver">2</div><div class="lb-n">Beta</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk bronze">3</div><div class="lb-n">Gamma</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk">4</div><div class="lb-n">Delta</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk">5</div><div class="lb-n">Epsilon</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk">6</div><div class="lb-n">Zeta</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+      <div class="lb-r"><div class="lb-rk">7</div><div class="lb-n">Eta</div><div class="lb-b"><div class="lb-f" style="width:0%"></div></div><div class="lb-p">0</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="g22">
+  <div class="card">
+    <div class="ch"><div class="chd" style="background:var(--gn)"></div>Strategy Health</div>
+    <div id="stratHealth">
+      <div class="sr"><div class="sn">Swing Trading</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Momentum + News</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Options</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Index / Lev. ETFs</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Multi-Asset Macro</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Mean Reversion</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+      <div class="sr"><div class="sn">Carry / Income</div><div class="sb"><div class="sf sg" style="width:100%"></div></div><div class="sp">100</div><div class="st">ACTIVE</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><div class="chd" style="background:var(--rd)"></div>Vinod Control Panel</div>
+    <div class="ctrl" id="ctrlStatus">✅ Trading ACTIVE · Normal mode · Daily loss limit: $500<br><span style="font-size:10px;color:var(--mt)">To issue commands, message Catalyst on Telegram</span></div>
+    <div style="font-size:12px;color:var(--mt);line-height:1.9">
+      <div>⏸️ "Freeze all trading" → Alpha stops new ideas</div>
+      <div>❌ "Close NVDA" → Gamma exits within 15 min</div>
+      <div>🚨 "Emergency stop" → All positions close NOW</div>
+      <div>💰 "Set daily loss limit $300" → Auto-freeze if hit</div>
+      <div>📏 "Trade smaller, max $300" → Resize all positions</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:16px">
+  <div class="ch"><div class="chd" style="background:var(--gn)"></div>Trade History</div>
+  <div id="tradeHistory">
+    <div class="empty"><div class="ei">📊</div><div>No closed trades yet</div><div style="font-size:11px;margin-top:4px;color:var(--mt)">Trades will appear here once agents start closing positions</div></div>
+  </div>
+</div>
+
+<div class="note">⚡ Catalyst Trading Desk · Live prices from CoinGecko & Alternative.me · Auto-refreshes every 60s · Built by Catalyst</div>
+</div>
+
+<script>
+const fmt = (n, d=2) => '$' + Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct = (n) => (n >= 0 ? '+' : '') + Number(n).toFixed(2) + '%';
+
+async function loadPrices() {
+  try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,ripple,binancecoin&vs_currencies=usd&include_24hr_change=true');
+    const d = await r.json();
+    const set = (id, priceEl, chgEl, val, chg) => {
+      document.getElementById(priceEl).textContent = fmt(val);
+      const el = document.getElementById(chgEl);
+      el.textContent = pct(chg) + ' 24h';
+      el.className = 'pc ' + (chg >= 0 ? 'u' : 'd');
+    };
+    if(d.bitcoin) set('btc','pBTC','cBTC',d.bitcoin.usd,d.bitcoin.usd_24h_change);
+    if(d.ethereum) set('eth','pETH','cETH',d.ethereum.usd,d.ethereum.usd_24h_change);
+    if(d.solana) set('sol','pSOL','cSOL',d.solana.usd,d.solana.usd_24h_change);
+    if(d.ripple) set('xrp','pXRP','cXRP',d.ripple.usd,d.ripple.usd_24h_change);
+    if(d.binancecoin) set('bnb','pBNB','cBNB',d.binancecoin.usd,d.binancecoin.usd_24h_change);
+  } catch(e) { console.log('Price error:',e); }
+
+  try {
+    const r2 = await fetch('https://api.coingecko.com/api/v3/global');
+    const g = await r2.json();
+    if(g.data) {
+      const mc = g.data.total_market_cap?.usd;
+      const chg = g.data.market_cap_change_percentage_24h_usd;
+      document.getElementById('pMCAP').textContent = mc ? '$' + (mc/1e12).toFixed(2) + 'T' : '—';
+      const el = document.getElementById('cMCAP');
+      el.textContent = chg ? pct(chg) + ' 24h' : '';
+      el.className = 'pc ' + (chg >= 0 ? 'u' : 'd');
+    }
+  } catch(e) {}
+
+  try {
+    const r3 = await fetch('https://api.alternative.me/fng/?limit=1');
+    const f = await r3.json();
+    if(f.data && f.data[0]) {
+      const val = parseInt(f.data[0].value);
+      const lbl = f.data[0].value_classification;
+      document.getElementById('pFG').textContent = val + ' / 100';
+      const el = document.getElementById('cFG');
+      el.textContent = lbl;
+      el.className = 'pc ' + (val > 50 ? 'u' : val < 30 ? 'd' : 'f');
+      document.getElementById('fgBar').style.display = 'flex';
+      document.getElementById('fgNeedle').style.left = val + '%';
+    }
+  } catch(e) {}
+
+  try {
+    const r4 = await fetch('https://api.gold-api.com/price/XAU');
+    const g = await r4.json();
+    if(g.price) document.getElementById('pGOLD').textContent = fmt(g.price);
+  } catch(e) {
+
+    document.getElementById('pGOLD').textContent = 'API unavailable';
+  }
+}
+
+function updateTime() {
+  document.getElementById('ts').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+}
+
+async function loadAll() {
+  await loadPrices();
+  updateTime();
+}
+
+loadAll();
+setInterval(loadAll, 60000);
+</script>
+</body>
+</html>

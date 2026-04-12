@@ -11,8 +11,8 @@ import subprocess
 from datetime import datetime, timezone
 
 WORKSPACE = "/sandbox/.openclaw/workspace/trading"
-GH_TOKEN  = "YOUR_GITHUB_TOKEN_HERE"
-GH_REPO   = "https://tvinod09:{TOKEN}@github.com/tvinod09/catalyst-dashboard.git".format(TOKEN="YOUR_GITHUB_TOKEN_HERE")
+GH_TOKEN  = "GH_TOKEN_REDACTED"
+GH_REPO   = "https://tvinod09:{TOKEN}@github.com/tvinod09/catalyst-dashboard.git".format(TOKEN="GH_TOKEN_REDACTED")
 GIT_DIR   = "/tmp/catalyst-data-push"
 
 def read_json(path, default=None):
@@ -64,6 +64,74 @@ def build_data():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     log   = read_text(f"{WORKSPACE}/logs/{today}.md")
     activity = [l.lstrip("# ").strip() for l in log.split("\n") if l.startswith("## ") or l.startswith("### ")][-10:]
+
+    # Reports feed — scan reports/ and logs/ for dated report files, newest first
+    reports = []
+    for rdir in [f"{WORKSPACE}/reports", f"{WORKSPACE}/logs"]:
+        if not os.path.isdir(rdir):
+            continue
+        for fname in os.listdir(rdir):
+            if not fname.endswith(".md"):
+                continue
+            fpath = os.path.join(rdir, fname)
+            try:
+                mtime = os.path.getmtime(fpath)
+                content = read_text(fpath)
+                if not content.strip():
+                    continue
+                # First non-empty line as title
+                title_line = next((l.strip().lstrip("#").strip() for l in content.split("\n") if l.strip()), fname)
+                # Classify type
+                rtype = "log"
+                nl = fname.lower()
+                if "pre-market" in nl or "morning" in nl or "briefing" in nl:
+                    rtype = "morning"
+                elif "postmortem" in nl or "post-mortem" in nl:
+                    rtype = "postmortem"
+                elif "weekly" in nl or "performance" in nl or "championship" in nl:
+                    rtype = "weekly"
+                elif "daily" in nl or "report" in nl:
+                    rtype = "daily"
+                elif "mid-day" in nl or "midday" in nl:
+                    rtype = "midday"
+                reports.append({
+                    "filename": fname,
+                    "title": title_line[:120],
+                    "type": rtype,
+                    "ts": mtime,
+                    "date": datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+                    "preview": content.strip()[:600],
+                })
+            except Exception:
+                continue
+    # Also check for Telegram-style reports stored in intelligence/
+    for fname in ["pre-market-briefing.md", "daily-report.md", "weekly-performance.md"]:
+        fpath = f"{WORKSPACE}/intelligence/{fname}"
+        if os.path.exists(fpath):
+            content = read_text(fpath)
+            if content.strip():
+                mtime = os.path.getmtime(fpath)
+                title_line = next((l.strip().lstrip("#").strip() for l in content.split("\n") if l.strip()), fname)
+                rtype = "morning" if "pre-market" in fname else "weekly" if "weekly" in fname else "daily"
+                reports.append({
+                    "filename": fname, "title": title_line[:120], "type": rtype,
+                    "ts": mtime,
+                    "date": datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+                    "preview": content.strip()[:600],
+                })
+    # Sort newest first
+    reports.sort(key=lambda x: x["ts"], reverse=True)
+    reports_out = [{k: v for k, v in r.items() if k != "ts"} for r in reports[:50]]
+
+    # Agent comms / activity feed (last 30 non-empty lines from agent-comms.md)
+    comms_raw = read_text(f"{WORKSPACE}/intelligence/agent-comms.md")
+    comms_lines = [l.strip() for l in comms_raw.split("\n") if l.strip() and not l.startswith("#")]
+    agent_activity = comms_lines[-30:]
+
+    # Debate log (last 50 non-empty lines from debate-history.md)
+    debate_raw = read_text(f"{WORKSPACE}/logs/debate-history.md")
+    debate_lines = [l.strip() for l in debate_raw.split("\n") if l.strip()]
+    debate_log = debate_lines[-50:]
 
     cash     = portfolio.get("cash", 15000)
     pnl      = portfolio.get("realized_pnl", 0)
@@ -131,6 +199,9 @@ def build_data():
             "vinod_notes":       control.get("vinod_notes", ""),
         },
         "activity": activity,
+        "agent_activity": agent_activity,
+        "debate_log": debate_log,
+        "reports": reports_out,
     }
 
 def publish():

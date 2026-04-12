@@ -10,8 +10,13 @@
   "last_updated": "2026-04-12T05:23:00Z",
   "_rules": {
     "stop_loss": "MANDATORY on every position. No stop = trade never entered.",
-    "max_loss_per_trade": 750,
+    "max_loss_per_trade": 500,
     "min_cash": 3000,
+    "max_concurrent_positions": 6,
+    "max_position_size_pct": 0.08,
+    "position_sizing": "Kelly-based: risk $500 per trade, position size = risk_amount / (entry - stop_loss)",
+    "max_single_asset_class_pct": 0.35,
+    "max_single_sector_pct": 0.40,
     "feedback_loop": "MANDATORY after every trade close \u2014 win or loss",
     "position_schema": {
       "ticker": "string",

@@ -1,0 +1,11 @@
+{
+  "risk_score": 1,
+  "regime": "no_positions",
+  "cash_pct": 100,
+  "block_new_positions": false,
+  "block_reason": null,
+  "position_count": 0,
+  "correlation_warnings": [],
+  "exposure_warnings": [],
+  "updated_at": "2026-04-12T21:51:00Z"
+}

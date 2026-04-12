@@ -11,8 +11,8 @@ import subprocess
 from datetime import datetime, timezone
 
 WORKSPACE = "/sandbox/.openclaw/workspace/trading"
-GH_TOKEN  = "GH_TOKEN_REDACTED"
-GH_REPO   = "https://tvinod09:{TOKEN}@github.com/tvinod09/catalyst-dashboard.git".format(TOKEN="GH_TOKEN_REDACTED")
+GH_TOKEN  = "YOUR_GITHUB_TOKEN_HERE"
+GH_REPO   = "https://tvinod09:{TOKEN}@github.com/tvinod09/catalyst-dashboard.git".format(TOKEN="YOUR_GITHUB_TOKEN_HERE")
 GIT_DIR   = "/tmp/catalyst-data-push"
 
 def read_json(path, default=None):

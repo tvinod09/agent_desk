@@ -1,0 +1,57 @@
+{
+  "week_start": "2026-04-14",
+  "week_end": "2026-04-18",
+  "last_updated": "2026-04-12",
+  "agents": {
+    "Alpha": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Beta": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Gamma": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Delta": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Epsilon": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Zeta": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Eta": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    },
+    "Theta": {
+      "weekly_points": 0,
+      "all_time_points": 0,
+      "championships": 0,
+      "this_week_log": []
+    }
+  },
+  "past_champions": [],
+  "pending_wishes": []
+}

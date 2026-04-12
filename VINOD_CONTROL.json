@@ -1,0 +1,13 @@
+{
+  "last_updated": "2026-04-12T06:00:00Z",
+  "trading_active": true,
+  "override_mode": "NORMAL",
+  "daily_loss_limit": 500,
+  "daily_loss_current": 0,
+  "max_position_size_override": null,
+  "freeze_new_trades": false,
+  "freeze_reason": null,
+  "manual_close_requests": [],
+  "vinod_notes": "",
+  "commands_log": []
+}

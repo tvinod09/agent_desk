@@ -1,0 +1,156 @@
+[
+  {
+    "cycle_id": "2026-04-11-0700",
+    "timestamp": "2026-04-11T07:00:00Z",
+    "data_source": "SIMULATED (sandbox proxy blocks financial APIs; Brave Search API key not configured)",
+    "market_conditions": {
+      "sp500_level": 5350,
+      "sp500_change_pct": -0.6,
+      "nasdaq_level": 17100,
+      "nasdaq_change_pct": -0.9,
+      "vix": 22.4,
+      "vix_regime": "elevated",
+      "market_tone": "cautious",
+      "leading_sectors": ["energy", "healthcare", "utilities"],
+      "lagging_sectors": ["technology", "consumer_discretionary", "communication_services"],
+      "10y_yield": 4.52
+    },
+    "alpha_suggestions": [
+      {
+        "ticker": "XOM",
+        "direction": "LONG",
+        "strategy": "sector_momentum_defensive_rotation",
+        "entry": 121.50,
+        "target": 128.00,
+        "stop": 118.00,
+        "size": 2430,
+        "conviction": "HIGH",
+        "time_horizon": "swing 5-7 days",
+        "rationale": "Energy sector leading risk-off rotation. XOM benefits from elevated crude (~$82/bbl), solid Q1 expectations, and defensive dividend yield (~3.6%). VIX 22 historically favors XOM. 50-day MA support at $119.",
+        "rr_ratio": 1.83,
+        "loss_pattern_check": "None",
+        "alpha_flags": "R/R 1.83:1 slightly below 2:1 minimum — flagged for Beta"
+      },
+      {
+        "ticker": "UNH",
+        "direction": "LONG",
+        "strategy": "technical_breakout_defensive_rotation",
+        "entry": 575.00,
+        "target": 610.00,
+        "stop": 558.00,
+        "size": 2875,
+        "conviction": "HIGH",
+        "time_horizon": "swing 1-2 weeks",
+        "rationale": "UNH held consolidation above $565 for 3 weeks during market weakness — relative strength signal. Healthcare rotation accelerating. Pre-earnings run historically starts 2 weeks ahead. Less tariff-sensitive sector.",
+        "rr_ratio": 2.06,
+        "loss_pattern_check": "None",
+        "alpha_flags": "Earnings in ~12 days — elevated risk noted"
+      },
+      {
+        "ticker": "SPY",
+        "direction": "SHORT",
+        "strategy": "macro_hedge_continuation",
+        "entry": 535.00,
+        "target": 520.00,
+        "stop": 542.00,
+        "size": 1500,
+        "conviction": "MEDIUM",
+        "time_horizon": "intraday to 2-day swing",
+        "rationale": "VIX elevated, tariff escalation headlines, Q1 earnings uncertainty. Playing continuation of weekly downtrend from $540 high.",
+        "rr_ratio": 2.15,
+        "loss_pattern_check": "None",
+        "alpha_flags": "Going counter to broad market trend — flagged for Beta scrutiny"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "LONG",
+        "strategy": "mean_reversion_oversold_bounce",
+        "entry": 895.00,
+        "target": 940.00,
+        "stop": 872.00,
+        "size": 2685,
+        "conviction": "MEDIUM",
+        "time_horizon": "swing 3-5 days",
+        "rationale": "NVDA down 8% from March high amid tech weakness. RSI ~35 estimated. AI infrastructure demand narrative intact. Semiconductor oversold bounces typically 4-6% within 3-5 days.",
+        "rr_ratio": 1.96,
+        "loss_pattern_check": "None",
+        "alpha_flags": "MEDIUM conviction in down-trending tech sector. Borderline R/R."
+      },
+      {
+        "ticker": "GDX",
+        "direction": "LONG",
+        "strategy": "momentum_safe_haven_rotation",
+        "entry": 46.80,
+        "target": 50.50,
+        "stop": 44.50,
+        "size": 1872,
+        "conviction": "MEDIUM",
+        "time_horizon": "1-2 weeks",
+        "rationale": "Gold surging past $3,100/oz. GDX (gold miners ETF) typically lags then catches up. Higher beta to gold prices. VIX 22 supports safe haven flows.",
+        "rr_ratio": 1.61,
+        "loss_pattern_check": "None",
+        "alpha_flags": "R/R 1.61:1 BELOW 2:1 minimum — flagging for Beta"
+      }
+    ],
+    "beta_approved": [
+      {
+        "ticker": "XOM",
+        "direction": "LONG",
+        "modified_entry": 121.00,
+        "modified_target": 128.50,
+        "modified_stop": 119.00,
+        "modified_size": 2420,
+        "shares": 20,
+        "actual_cost": 2420.00,
+        "fee": 1.00,
+        "final_rr_ratio": 2.5,
+        "conditions": "Standard — no special conditions",
+        "execution_status": "EXECUTED"
+      },
+      {
+        "ticker": "UNH",
+        "direction": "LONG",
+        "modified_entry": 575.00,
+        "modified_target": 610.00,
+        "modified_stop": 558.00,
+        "modified_size": 1725,
+        "shares": 3,
+        "actual_cost": 1725.00,
+        "fee": 1.00,
+        "final_rr_ratio": 2.06,
+        "conditions": "MANDATORY CLOSE by 2026-04-23 (pre-earnings rule)",
+        "execution_status": "EXECUTED"
+      }
+    ],
+    "beta_rejected": [
+      {
+        "ticker": "SPY",
+        "direction": "SHORT",
+        "rejection_reason": "MEDIUM conviction + counter-trend short during Q1 earnings season. Gap risk from potential positive surprises (bank earnings). Cash position already provides hedge value. Directional short of SPY requires HIGH conviction only.",
+        "beta_rule_triggered": "Going against broad market trend requires extra justification; MEDIUM conviction insufficient"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "LONG",
+        "rejection_reason": "MEDIUM conviction in downtrending tech sector. Position size math error (max loss ~$2,000 exceeds $750 per-trade limit). R/R 1.96:1 below 2:1 minimum. Unresolved tariff headwind on chip exports weakens mean-reversion thesis.",
+        "beta_rule_triggered": "R/R below minimum; position size exceeds risk limit; conviction insufficient for trending market"
+      },
+      {
+        "ticker": "GDX",
+        "direction": "LONG",
+        "rejection_reason": "R/R 1.61:1 well below 2:1 hard minimum. High-beta ETF with compressed reward vs risk at proposed parameters. MEDIUM conviction. Re-examine if entry improves to ~$45.50.",
+        "beta_rule_triggered": "R/R below 2:1 hard minimum — automatic reject"
+      }
+    ],
+    "portfolio_after_execution": {
+      "cash": 10853.00,
+      "cash_pct": 70.5,
+      "total_invested": 4145.00,
+      "total_fees": 2.00,
+      "positions": {
+        "XOM": {"shares": 20, "entry": 121.00, "cost_basis": 2420.00},
+        "UNH": {"shares": 3, "entry": 575.00, "cost_basis": 1725.00}
+      }
+    }
+  }
+]

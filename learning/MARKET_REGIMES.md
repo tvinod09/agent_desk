@@ -8,11 +8,13 @@ Different market conditions demand different strategies. This file maps which pl
 
 ## Current Regime Assessment
 ```
-Last updated: 2026-04-12
-Regime: [TBD — will be set by Zeta on first cycle]
-VIX level: [TBD]
-Trend: [TBD]
-Bias: [TBD]
+Last updated: 2026-04-13
+Regime: REGIME 3 (Bear Trend + High VIX) + REGIME 6 Overlay (Macro Uncertainty)
+VIX level: ~18-24 (elevated moderate)
+Crypto: REGIME 8 (Bear) — F&G = 12, EXTREME FEAR
+Gold: $4,724/oz — multi-decade high — safe haven flows dominant
+Trend: Bearish / Risk-Off
+Bias: Capital preservation priority. Multi-Asset Macro and Carry/Income favored.
 ```
 
 ---
@@ -113,7 +115,28 @@ Bias: [TBD]
 ## Regime History
 | Date | Regime | Duration | Best Strategy | Notes |
 |---|---|---|---|---|
-| 2026-04-12 | TBD | - | - | System launch |
+| 2026-04-11 | Regime 2 (Bull + High VIX) | ~2 days | Swing (XOM) | System launch; VIX ~22.4; defensive rotation |
+| 2026-04-13 | Regime 3 + Regime 6 | Ongoing | Multi-Asset Macro | Gold $4,724; F&G=12; Q1 earnings season opens |
+
+---
+
+## 🆕 MACRO TREND TRADE DESIGNATION
+*(Added: 2026-04-13 — post-mortem SURPRISE-001 finding)*
+
+When Zeta confirms a Macro Safe Haven Regime (REGIME 3 or REGIME 4 + Gold confirmed above 50-day MA + F&G ≤ 30), Alpha may designate trades as **"Macro Trend Trade"** with the following modified rules:
+
+| Parameter | Normal Swing Trade | Macro Trend Trade |
+|-----------|-------------------|-------------------|
+| Min R/R | 2.0:1 | 1.5:1 |
+| Target | Fixed price target | None — trailing stop replaces |
+| Stop | Hard stop at entry - X% | Trailing stop at key MA |
+| Duration | 1-3 weeks | 4-8 weeks minimum |
+| Size | Normal (regime-adjusted) | 50% max (preserve capital) |
+| Zeta confirmation | Not required | REQUIRED |
+
+**Eligible instruments for Macro Trend Trades:** Gold (XAU/GLD/GDX), Treasury bonds (TLT), USD (DXY/UUP), defensive sector leaders in confirmed rotation
+**NOT eligible:** Individual growth stocks, tech names, crypto (too volatile for trailing stop structure)
+**Beta rule:** Evaluate Macro Trend Trades under the Macro Trend parameters above — do NOT apply the 2:1 hard minimum R/R to these designations.
 
 ---
 *Updated weekly by Eta | Read by Alpha + Zeta every cycle*

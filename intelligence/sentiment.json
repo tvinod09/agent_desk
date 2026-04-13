@@ -1,0 +1,14 @@
+{
+  "market_regime": "Risk-Off Recovery",
+  "overall": "Neutral",
+  "fear_greed": {
+    "value": 12,
+    "label": "Extreme Fear"
+  },
+  "top_headlines": [
+    "U.S. stocks at session highs as close nears; Trump says Iran wants to 'work a deal'",
+    "BlackRock Pivots Back to US Stocks With Iran War 'Contained'",
+    "Financial Stability Board chair warns of stability 'triple whammy' as funding conditions tighten"
+  ],
+  "updated_at": "2026-04-13T20:00:00Z"
+}

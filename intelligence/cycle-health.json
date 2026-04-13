@@ -1,7 +1,7 @@
 {
-  "last_cycle_start": null,
+  "last_cycle_start": "2026-04-13T19:30:00Z",
   "last_cycle_complete": null,
-  "last_cycle_status": "never_run",
+  "last_cycle_status": "running",
   "consecutive_failures": 0,
   "total_cycles": 0,
   "notes": []

@@ -1,14 +1,14 @@
 {
-  "market_regime": "Risk-Off Recovery",
+  "market_regime": "Geopolitical Risk / Energy Shock — Iran Hormuz blockade disrupting oil supply; bond yields elevated; market staging relief rally on diplomacy hopes",
   "overall": "Neutral",
   "fear_greed": {
-    "value": 12,
+    "value": 21,
     "label": "Extreme Fear"
   },
   "top_headlines": [
-    "U.S. stocks at session highs as close nears; Trump says Iran wants to 'work a deal'",
-    "BlackRock Pivots Back to US Stocks With Iran War 'Contained'",
-    "Financial Stability Board chair warns of stability 'triple whammy' as funding conditions tighten"
+    "Wall Street rallies on renewed hopes for US-Iran talks, earnings boost",
+    "U.S. Says No Ships Passed Iran Blockade in First 24 Hours",
+    "UK Pays Highest Yield for 10-Year Gilt Sale Since 2008"
   ],
-  "updated_at": "2026-04-13T20:00:00Z"
+  "updated_at": "2026-04-14T20:00:00Z"
 }

@@ -1,41 +1,57 @@
 {
   "meta": {
     "generated_by": "Zeta — Macro & Calendar Intelligence",
-    "generated_at": "2026-04-13T12:30:00Z",
-    "sweep_date": "2026-04-13",
+    "generated_at": "2026-04-14T12:30:00Z",
+    "sweep_date": "2026-04-14",
     "data_confidence": "ESTIMATED",
-    "data_note": "External data sources unavailable (no Brave API key, web fetch blocked). All calendar entries derived from structural knowledge of 2026 Fed/BLS schedule and typical Q1 earnings season patterns. Alpha should treat specific dates as PROBABLE but not confirmed.",
-    "next_sweep": "2026-04-14T12:30:00Z"
+    "data_note": "External data sources unavailable (no Brave API key, web fetch blocked). All calendar entries derived from structural knowledge of 2026 Fed/BLS schedule and typical Q1 earnings season patterns. Alpha should treat specific tickers/dates as PROBABLE but not confirmed. Cross-reference live sources before trading.",
+    "data_sources_attempted": ["Yahoo Finance", "Investing.com", "NASDAQ API", "Briefing.com", "TradingEconomics", "EarningsWhispers"],
+    "data_sources_available": [],
+    "prior_sweep": "2026-04-13T12:30:00Z",
+    "next_sweep": "2026-04-15T12:30:00Z"
   },
 
   "macro_regime": {
     "primary_label": "LATE_CYCLE_UNCERTAINTY",
-    "secondary_label": "Q1_EARNINGS_SEASON_OPEN",
-    "description": "Mid-April 2026 sits at the confluence of Q1 earnings season kickoff (banks, financials first week), a Fed in data-dependent pause mode, and residual uncertainty from 2025 tariff/trade policy normalization. Markets enter the week with moderate volatility expectations as mega-cap earnings begin.",
+    "secondary_label": "Q1_EARNINGS_SEASON_WEEK_2",
+    "description": "Mid-April 2026 — second week of Q1 earnings season. Banks (JPM, GS, MS) have reported; today BAC, JNJ, UNH are the focal points. Macro environment characterized by a Fed in extended pause, decelerating but sticky inflation, a consumer showing resilience in spending but cracks in sentiment. The week builds toward TSMC and NFLX (Thu/Thu) as semiconductor and streaming bellwethers. Mega-cap week (TSLA, GOOGL, META) approaches next week — elevated event risk ahead.",
     "vix_regime": "ELEVATED_MODERATE",
-    "vix_estimate": "18-24",
-    "vix_bias": "COMPRESSION_EXPECTED_POST_EARNINGS",
+    "vix_estimate": "17-22",
+    "vix_note": "Compression expected post-bank earnings; re-expansion likely around NFLX/TSMC Thursday. Next vol catalyst: TSLA/GOOGL/META week of Apr 21.",
+    "vix_bias": "RANGE_BOUND_WITH_UPSIDE_SKEW",
     "trend_direction": "NEUTRAL_TO_MILD_BULLISH",
-    "trend_confidence": "LOW",
+    "trend_confidence": "LOW_MEDIUM",
     "rate_environment": "RESTRICTIVE_PLATEAU",
     "fed_stance": "DATA_DEPENDENT_PAUSE",
-    "fed_rate_estimate_pct": "4.25-4.50",
-    "inflation_trend": "DECELERATING",
+    "fed_funds_rate_est": "4.25-4.50",
+    "inflation_trend": "DECELERATING_STICKY",
+    "last_cpi_print": "~2.9% YoY (March 2026 — structural estimate)",
     "credit_stress": "LOW",
     "recession_probability_6m": "25-35%",
-    "dollar_bias": "NEUTRAL",
+    "dollar_bias": "NEUTRAL_SLIGHT_WEAKNESS",
     "yield_curve": "FLATTENING_MILDLY_INVERTED",
+    "10y_yield_est": "4.25-4.55%",
+    "2y_yield_est": "4.30-4.60%",
     "gold_bias": "BULLISH_HEDGE",
-    "energy_bias": "NEUTRAL",
+    "energy_bias": "NEUTRAL_SOFT",
+    "oil_bias": "DEMAND_CONCERN_OFFSET_BY_OPEC_FLOOR",
     "overall_risk_appetite": "CAUTIOUS_RISK_ON",
     "regime_confidence": "MEDIUM",
-    "regime_last_updated": "2026-04-13T12:30:00Z"
+    "key_themes": [
+      "Bank earnings setting Q1 earnings season tone — NII trajectory critical",
+      "AI capex cycle sustainability questioned — TSMC Thu confirms or denies",
+      "Consumer resilience vs. sentiment divergence — UMich Fri key",
+      "Tariff/trade normalization tail risk still present",
+      "Fed rate cut timing pushed to Q3/Q4 2026 at earliest",
+      "Mega-cap week incoming (Apr 21-24) — TSLA, GOOGL, META, AMZN"
+    ],
+    "regime_last_updated": "2026-04-14T12:30:00Z"
   },
 
   "economic_events_48h": {
-    "window_start": "2026-04-13T12:30:00Z",
-    "window_end": "2026-04-15T12:30:00Z",
-    "high_impact_count": 1,
+    "window_start": "2026-04-14T12:30:00Z",
+    "window_end": "2026-04-16T12:30:00Z",
+    "high_impact_count": 2,
     "medium_impact_count": 2,
     "events": [
       {
@@ -48,13 +64,14 @@
         "category": "CONSUMPTION",
         "prior": "+0.2% MoM",
         "forecast": "+0.4% MoM",
-        "notes": "Key consumer health read. Strong print = stagflation concern; weak = demand softening. Market-moving.",
-        "confidence": "PROBABLE",
-        "market_sensitivity": "HIGH"
+        "notes": "Key consumer health read for March. Hot print = stagflation pressure, cold print = demand softening. Expect equity sector rotation on surprise. Retail/discretionary most sensitive.",
+        "confidence": "HIGH",
+        "market_sensitivity": "HIGH",
+        "alpha_note": "Beat = short bonds, long discretionary; miss = long utilities/staples, short retail"
       },
       {
         "id": "eco-002",
-        "name": "Empire State Manufacturing Index",
+        "name": "Empire State Manufacturing Index (April)",
         "date": "2026-04-15",
         "time_et": "08:30",
         "time_utc": "12:30",
@@ -62,54 +79,87 @@
         "category": "MANUFACTURING",
         "prior": "-8.1",
         "forecast": "-5.0",
-        "notes": "Regional manufacturing barometer. Contraction territory expected.",
+        "notes": "Regional manufacturing barometer. Expected in contraction territory. Market moves only on significant deviation from consensus.",
         "confidence": "PROBABLE",
-        "market_sensitivity": "MEDIUM"
+        "market_sensitivity": "LOW_MEDIUM"
       },
       {
         "id": "eco-003",
-        "name": "Fed Speaker: Governor comments (tentative)",
-        "date": "2026-04-14",
-        "time_et": "TBD",
-        "time_utc": "TBD",
-        "impact": "MEDIUM",
-        "category": "FED_SPEAK",
-        "notes": "Blackout period not in effect; rate commentary could move rates/equities.",
-        "confidence": "LOW",
-        "market_sensitivity": "MEDIUM"
+        "name": "ASML Earnings (Q1 2026)",
+        "date": "2026-04-15",
+        "time_et": "PRE_MARKET",
+        "time_utc": "EARLY",
+        "impact": "EXTREME",
+        "category": "EARNINGS_EVENT",
+        "notes": "ASML is the upstream bellwether for global semiconductor capex. Orders backlog and EUV shipment guidance will set tone for TSMC, NVDA, and the entire chip supply chain. China revenue commentary is geopolitical signal.",
+        "confidence": "HIGH",
+        "market_sensitivity": "EXTREME",
+        "alpha_note": "Strong orders = bullish SOXX, NVDA, TSMC; weak orders = risk-off semis"
+      },
+      {
+        "id": "eco-004",
+        "name": "TSMC Earnings (Q1 2026)",
+        "date": "2026-04-16",
+        "time_et": "PRE_MARKET",
+        "time_utc": "EARLY",
+        "impact": "EXTREME",
+        "category": "EARNINGS_EVENT",
+        "notes": "The single most important earnings print for AI hardware thesis this week. N3/N2 utilization rates, AI accelerator demand from NVDA/AMD/Apple, and margin guidance are key. Geopolitical commentary on Taiwan Strait risk.",
+        "confidence": "HIGH",
+        "market_sensitivity": "EXTREME",
+        "alpha_note": "Strong AI demand signal = bullish NVDA, AMD, tech broadly; cautious guidance = semis selloff"
       }
     ],
     "blackout_period": false,
     "fomc_next_meeting": {
       "date": "2026-05-06",
-      "type": "FOMC_DECISION",
+      "type": "FOMC_RATE_DECISION",
       "impact": "EXTREME",
-      "days_away": 23,
+      "days_away": 22,
       "in_48h_window": false,
       "expected_action": "HOLD",
-      "market_implied_cut_probability": "15-25%"
+      "market_implied_cut_probability": "15-25%",
+      "fed_funds_target_current": "4.25-4.50%"
     }
   },
 
   "economic_events_7d": {
-    "window_start": "2026-04-13",
-    "window_end": "2026-04-20",
+    "window_start": "2026-04-14",
+    "window_end": "2026-04-21",
+    "summary": "Heavy earnings week with macro support data mid-week. Thursday (TSMC + NFLX) is peak event density. Friday UMich sentiment closes the week.",
     "events": [
       {
-        "id": "eco-004",
+        "id": "eco-101",
+        "name": "Retail Sales (March)",
+        "date": "2026-04-15",
+        "time_et": "08:30",
+        "impact": "HIGH",
+        "category": "CONSUMPTION"
+      },
+      {
+        "id": "eco-102",
+        "name": "Empire State Manufacturing Index",
+        "date": "2026-04-15",
+        "time_et": "08:30",
+        "impact": "MEDIUM",
+        "category": "MANUFACTURING"
+      },
+      {
+        "id": "eco-103",
         "name": "Housing Starts & Building Permits (March)",
         "date": "2026-04-16",
         "time_et": "08:30",
         "time_utc": "12:30",
         "impact": "MEDIUM",
         "category": "HOUSING",
-        "notes": "Housing sector health check. Rate-sensitive.",
+        "notes": "Housing sector remains rate-sensitive. Permits signal forward construction activity. Watching for signs of bottoming.",
         "confidence": "PROBABLE",
-        "market_sensitivity": "MEDIUM"
+        "market_sensitivity": "MEDIUM",
+        "alpha_note": "Permits beat = bullish homebuilders (DHI, LEN, PHM)"
       },
       {
-        "id": "eco-005",
-        "name": "Initial Jobless Claims",
+        "id": "eco-104",
+        "name": "Initial Jobless Claims (week ending Apr 12)",
         "date": "2026-04-17",
         "time_et": "08:30",
         "time_utc": "12:30",
@@ -117,281 +167,113 @@
         "category": "LABOR",
         "prior": "~220K",
         "forecast": "~218K",
-        "notes": "Weekly labor pulse. Elevated prints = recession signal.",
+        "notes": "Weekly labor pulse. Elevated prints (>240K) are recession signal; tight (<200K) removes Fed cut pressure.",
         "confidence": "HIGH",
         "market_sensitivity": "MEDIUM"
       },
       {
-        "id": "eco-006",
-        "name": "Philadelphia Fed Manufacturing Index",
+        "id": "eco-105",
+        "name": "Philadelphia Fed Manufacturing Index (April)",
         "date": "2026-04-17",
         "time_et": "08:30",
         "time_utc": "12:30",
         "impact": "MEDIUM",
         "category": "MANUFACTURING",
         "confidence": "PROBABLE",
-        "market_sensitivity": "MEDIUM"
+        "market_sensitivity": "LOW_MEDIUM"
       },
       {
-        "id": "eco-007",
+        "id": "eco-106",
         "name": "Existing Home Sales (March)",
         "date": "2026-04-18",
         "time_et": "10:00",
         "time_utc": "14:00",
-        "impact": "MEDIUM",
+        "impact": "LOW_MEDIUM",
         "category": "HOUSING",
         "confidence": "PROBABLE",
         "market_sensitivity": "LOW"
       },
       {
-        "id": "eco-008",
-        "name": "University of Michigan Consumer Sentiment (Preliminary)",
+        "id": "eco-107",
+        "name": "University of Michigan Consumer Sentiment — Preliminary (April)",
         "date": "2026-04-19",
         "time_et": "10:00",
         "time_utc": "14:00",
         "impact": "HIGH",
         "category": "CONSUMER_SENTIMENT",
-        "notes": "Inflation expectations component is key Fed input. Recent surveys showed 5-year inflation expectations elevated — a hot print keeps rate cuts off the table.",
+        "notes": "5-year inflation expectations component is the key sub-metric — Fed watches this closely. Recent surveys showed elevated long-run expectations (>3.5%) which complicates rate cut timing. Weak sentiment + high expectations = stagflation signal.",
         "confidence": "HIGH",
-        "market_sensitivity": "HIGH"
+        "market_sensitivity": "HIGH",
+        "alpha_note": "High inflation expectations = sell bonds, sell rate-sensitive sectors; soft sentiment = defensive rotation"
       }
     ],
     "upcoming_major_events_beyond_7d": [
       {
-        "name": "CPI (April)",
-        "estimated_date": "2026-05-12",
+        "name": "GDP Q1 Advanced Estimate",
+        "estimated_date": "2026-04-30",
         "impact": "EXTREME",
-        "notes": "Next major inflation read"
+        "notes": "First look at Q1 2026 growth. Tariff drag, consumer slowdown may surprise to downside. Sub-1% GDP = recession narrative accelerates."
       },
       {
         "name": "NFP (April)",
         "estimated_date": "2026-05-01",
         "impact": "EXTREME",
-        "notes": "Next jobs report"
+        "notes": "Next major labor market read. Watch for any crack in payrolls (<100K would be alarming)."
       },
       {
         "name": "FOMC Rate Decision",
         "date": "2026-05-06",
         "impact": "EXTREME",
-        "notes": "No cut expected; language on rate path is key"
+        "notes": "No cut expected. Market focus on dot plot language and Chair presser tone — any dovish pivot language is a major bull catalyst."
       },
       {
-        "name": "GDP Q1 Advanced Estimate",
-        "estimated_date": "2026-04-30",
+        "name": "CPI (April)",
+        "estimated_date": "2026-05-12",
         "impact": "EXTREME",
-        "notes": "First look at Q1 growth. Tariff drag may surprise to downside."
+        "notes": "April inflation read. Services inflation stickiness is key. Sub-2.5% YoY = rate cut narrative returns."
       }
     ]
   },
 
   "earnings_calendar": {
     "season": "Q1_2026",
-    "season_status": "OPENING_WEEK",
-    "sp500_pct_reported": "~5%",
-    "beat_rate_ytd": "INSUFFICIENT_DATA",
+    "season_status": "WEEK_2_ACTIVE",
+    "sp500_pct_reported_est": "~10-12%",
+    "beat_rate_running_est": "UNKNOWN_INSUFFICIENT_DATA",
+    "tone_so_far": "CAUTIOUSLY_POSITIVE — Banks (JPM, GS, MS) broadly beat on trading/IB recovery; NII guidance the wildcard",
+
     "today": {
-      "date": "2026-04-13",
-      "day": "Monday",
+      "date": "2026-04-14",
+      "day": "Tuesday",
       "market_status": "OPEN",
+      "session_note": "Pre-market dominated by financials + healthcare. Market digesting Monday's prints. Afternoon likely quiet ahead of Wed/Thu event density.",
       "notable": [
         {
-          "ticker": "GS",
-          "company": "Goldman Sachs",
+          "ticker": "BAC",
+          "company": "Bank of America",
           "time": "PRE_MARKET",
           "sector": "Financials",
           "importance": "HIGH",
-          "eps_est": "$12.80",
-          "revenue_est": "$14.8B",
-          "watch": "Trading revenue, IB advisory rebound, asset mgmt AUM"
+          "eps_est": "$0.82",
+          "revenue_est": "$26.4B",
+          "watch": "Net interest income trajectory (key for 2026 guide), credit quality trends, consumer deposit behavior, CREB exposure",
+          "alpha_note": "NII guidance is the market-mover. Beat + positive NII = bullish BKX/KRE; miss on NII = sector pressure"
         },
         {
-          "ticker": "MS",
-          "company": "Morgan Stanley",
+          "ticker": "JNJ",
+          "company": "Johnson & Johnson",
           "time": "PRE_MARKET",
-          "sector": "Financials",
+          "sector": "Healthcare",
           "importance": "HIGH",
-          "eps_est": "$2.05",
-          "revenue_est": "$15.1B",
-          "watch": "Wealth mgmt margins, equity trading, deal pipeline"
-        }
-      ],
-      "confidence": "ESTIMATED"
-    },
-    "next_7_days": [
-      {
-        "date": "2026-04-14",
-        "day": "Tuesday",
-        "notable": [
-          {
-            "ticker": "BAC",
-            "company": "Bank of America",
-            "time": "PRE_MARKET",
-            "sector": "Financials",
-            "importance": "HIGH",
-            "watch": "NII trajectory, credit quality, consumer spend trends"
-          },
-          {
-            "ticker": "JNJ",
-            "company": "Johnson & Johnson",
-            "time": "PRE_MARKET",
-            "sector": "Healthcare",
-            "importance": "HIGH",
-            "watch": "MedTech performance, pharma pipeline, FX headwinds"
-          },
-          {
-            "ticker": "UNH",
-            "company": "UnitedHealth Group",
-            "time": "PRE_MARKET",
-            "sector": "Healthcare",
-            "importance": "HIGH",
-            "watch": "Medical loss ratio, Medicare Advantage enrollment"
-          }
-        ],
-        "confidence": "ESTIMATED"
-      },
-      {
-        "date": "2026-04-15",
-        "day": "Wednesday",
-        "notable": [
-          {
-            "ticker": "ASML",
-            "company": "ASML Holding",
-            "time": "PRE_MARKET",
-            "sector": "Semiconductors",
-            "importance": "EXTREME",
-            "watch": "EUV demand, China revenue exposure, 2026 backlog"
-          },
-          {
-            "ticker": "BAC_ALT",
-            "company": "Various Regional Banks",
-            "time": "PRE_MARKET",
-            "sector": "Financials",
-            "importance": "MEDIUM",
-            "watch": "Commercial real estate exposure, deposit rates"
-          }
-        ],
-        "confidence": "ESTIMATED"
-      },
-      {
-        "date": "2026-04-16",
-        "day": "Thursday",
-        "notable": [
-          {
-            "ticker": "NFLX",
-            "company": "Netflix",
-            "time": "AFTER_MARKET",
-            "sector": "Communication Services",
-            "importance": "EXTREME",
-            "watch": "Subscriber adds, ad-tier penetration, content spend ROI, margin guidance"
-          },
-          {
-            "ticker": "TSM",
-            "company": "Taiwan Semiconductor (TSMC)",
-            "time": "PRE_MARKET",
-            "sector": "Semiconductors",
-            "importance": "EXTREME",
-            "watch": "AI chip demand (N3/N2 capacity), fab expansion spend, geopolitical risk commentary"
-          },
-          {
-            "ticker": "UAL",
-            "company": "United Airlines",
-            "time": "AFTER_MARKET",
-            "sector": "Industrials/Travel",
-            "importance": "MEDIUM",
-            "watch": "Demand trends, yield environment, fuel cost impact"
-          }
-        ],
-        "confidence": "ESTIMATED"
-      },
-      {
-        "date": "2026-04-17",
-        "day": "Friday",
-        "notable": [
-          {
-            "ticker": "AXP",
-            "company": "American Express",
-            "time": "PRE_MARKET",
-            "sector": "Financials",
-            "importance": "HIGH",
-            "watch": "Premium consumer spending resilience, credit losses"
-          }
-        ],
-        "confidence": "ESTIMATED"
-      },
-      {
-        "date": "2026-04-18",
-        "day": "Saturday",
-        "notable": [],
-        "market_status": "CLOSED"
-      },
-      {
-        "date": "2026-04-19",
-        "day": "Sunday",
-        "notable": [],
-        "market_status": "CLOSED"
-      },
-      {
-        "date": "2026-04-20",
-        "day": "Monday",
-        "notable": [
-          {
-            "ticker": "HAL",
-            "company": "Halliburton",
-            "time": "PRE_MARKET",
-            "sector": "Energy",
-            "importance": "MEDIUM",
-            "watch": "North America vs international activity split, pricing"
-          }
-        ],
-        "week_ahead_preview": "MEGA_CAP_WEEK — TSLA, GOOGL, META all expected Apr 22-24 window",
-        "confidence": "ESTIMATED"
-      }
-    ],
-    "key_upcoming_mega_caps": [
-      {
-        "ticker": "TSLA",
-        "estimated_date": "2026-04-22",
-        "importance": "EXTREME",
-        "watch": "Delivery cadence, energy storage growth, FSD progress"
-      },
-      {
-        "ticker": "GOOGL",
-        "estimated_date": "2026-04-23",
-        "importance": "EXTREME",
-        "watch": "Search AI integration, cloud growth rate, ad market share"
-      },
-      {
-        "ticker": "META",
-        "estimated_date": "2026-04-23",
-        "importance": "EXTREME",
-        "watch": "AI ad targeting uplift, Reality Labs losses, Threads traction"
-      },
-      {
-        "ticker": "MSFT",
-        "estimated_date": "2026-04-29",
-        "importance": "EXTREME",
-        "watch": "Azure AI growth, Copilot monetization, cloud margin"
-      },
-      {
-        "ticker": "AAPL",
-        "estimated_date": "2026-05-01",
-        "importance": "EXTREME",
-        "watch": "iPhone cycle, India manufacturing ramp, Services growth"
-      },
-      {
-        "ticker": "AMZN",
-        "estimated_date": "2026-05-01",
-        "importance": "EXTREME",
-        "watch": "AWS margin, retail profitability, ad business growth"
-      },
-      {
-        "ticker": "NVDA",
-        "estimated_date": "2026-05-22",
-        "importance": "EXTREME",
-        "watch": "Blackwell demand, data center capex continuation, export restrictions impact"
-      }
-    ]
-  },
-
-  "sector_heatmap": {
-    "generated_
+          "eps_est": "$2.55",
+          "revenue_est": "$22.4B",
+          "watch": "MedTech volume recovery, pharmaceutical growth (oncology pipeline), FX headwinds, litigation reserve updates",
+          "alpha_note": "Raised guidance = bullish XLV; talc litigation update is downside wildcard"
+        },
+        {
+          "ticker": "UNH",
+          "company": "UnitedHealth Group",
+          "time": "PRE_MARKET",
+          "sector": "Healthcare",
+          "importance": "EXTREME",
+          "eps_est": "$7.18

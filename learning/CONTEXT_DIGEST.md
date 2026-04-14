@@ -1,4 +1,4 @@
-## CONTEXT DIGEST — Generated 2026-04-13 21:00 UTC
+## CONTEXT DIGEST — Generated 2026-04-14 21:00 UTC
 _Alpha: read this instead of raw PLAYBOOK/EDGES/LOSS_PATTERNS. Falls back to raw files if this is >28h old._
 
 ---
@@ -7,22 +7,25 @@ _Alpha: read this instead of raw PLAYBOOK/EDGES/LOSS_PATTERNS. Falls back to raw
 
 **Top Rejection Reasons (by frequency):**
 
-| # | Pattern | Count | Status |
-|---|---------|-------|--------|
-| 1 | Mean reversion in unresolved fundamental downtrend | 1 | **KNOWN BAD SETUP** |
+| # | Pattern | Count | Label |
+|---|---------|-------|-------|
+| 1 | Mean reversion in unresolved fundamental downtrend | 1 | — |
 
-> _Note: Desk is in Week 0 (month zero). Only 1 documented pattern from test cycle rejections. Full frequency tracking begins Week 2 (Apr 21)._
+_Note: Desk is in Month Zero — only 1 pattern documented. Table will expand as live trading begins._
 
 **Last 10 Beta Rejections:**
 
 | Date | Ticker | Reason |
 |------|--------|--------|
-| 2026-04-13 | NVDA | Mean reversion LONG submitted during unresolved chip export tariff — no catalyst resolution confirmed. `mean-reversion-falling-knife` |
+| 2026-04-13 | NVDA | Mean reversion LONG submitted during active, unresolved chip tariff catalyst — no confirmed catalyst resolution |
 
-> _Only 1 recorded rejection in test cycle history._
+_Only 1 Beta rejection logged to date (test cycle). No patterns at 3+ occurrences yet._
 
-**⚠️ KNOWN BAD SETUP — `mean-reversion-falling-knife`:**
-Submitting a mean-reversion LONG where the downtrend driver (regulatory, tariff, earnings miss, guidance cut) is **unresolved and ongoing**. RSI oversold is NOT sufficient when fundamentals are driving the move lower. Alpha must confirm catalyst resolution before any mean reversion LONG submission.
+**⚠️ KNOWN BAD SETUP (3+ occurrences):** None yet — PATTERN-001 at 1 occurrence. Promote to KNOWN BAD when count ≥ 3.
+
+**PATTERN-001 Quick Rule (enforce every cycle):**
+Before submitting ANY mean reversion LONG → ask: *"Is the downtrend catalyst RESOLVED?"*
+If answer is "uncertain" or "ongoing" → **DO NOT SUBMIT.** Tag: `mean-reversion-falling-knife`
 
 ---
 
@@ -30,35 +33,34 @@ Submitting a mean-reversion LONG where the downtrend driver (regulatory, tariff,
 
 | Edge | Win Rate | Avg R | Works In Regime | Last Seen | Status |
 |------|----------|-------|-----------------|-----------|--------|
-| EDGE-001: Energy Sector Defensive Rotation | TBD | ≥2.5:1 target | VIX 20-28 Risk-Off (Regime 3) | 2026-04-13 (sim) | CANDIDATE |
-| EDGE-002: Gold/GDX Macro Trend | TBD | 1.5:1 + trailing | Regime 3+4, F&G ≤30, Safe Haven | 2026-04-13 (sim) | CANDIDATE (PRIORITY) |
+| EDGE-001: Energy Sector Defensive Rotation | TBD (0 real trades) | TBD (target ≥2.5:1) | VIX 20-28, Risk-Off | 2026-04-13 (simulated) | CANDIDATE |
+| EDGE-002: Gold/GDX Macro Trend | TBD (0 real trades) | TBD (target 1.5:1 + trail) | Regime 3/4, F&G ≤30, Gold > 50MA | 2026-04-13 (simulated) | CANDIDATE — **PRIORITY** |
 
-> No edges have reached CONFIRMED status yet (requires 5+ real trades, 60%+ WR). Zero real closed trades as of digest date.
+_No CONFIRMED edges yet (requires 5+ real trades, 60%+ WR). No DEGRADING flags applicable._
 
-**DEGRADING:** None (no live data yet).
-
-**Most Actionable:** EDGE-002 (Gold/GDX) — current regime is its ideal operating environment.
+**EDGE-002 Activation Criteria:** Zeta confirms Regime 3 or 4 + Gold above 50-day MA + F&G ≤ 30 → trigger Macro Trend Trade designation.
 
 ---
 
 ## PLAYBOOK SNAPSHOT
 
-**CURRENT REGIME:** Regime 3+6 — Bear/Risk-Off + Macro Uncertainty. VIX 18-24, F&G ≈ 12 (Extreme Fear), Gold at confirmed safe haven highs ($4,724), tariff uncertainty unresolved, earnings season active.
+**CURRENT REGIME:** Regime 3 + Regime 6 (Bear/Risk-Off + Macro Uncertainty | VIX 18-24, F&G ~12, tariff-driven)
 
-**TRADE IN THIS REGIME (top 3):**
-1. **Multi-Asset Macro / Gold-GDX Macro Trend** — Zeta-confirmed Regime 3+6 is this strategy's BEST environment. Enter GDX on intraday pullbacks with trailing stop. Priority setup.
-2. **Swing Trading — Defensive Rotation** (Energy: XOM, CVX, OXY) — institutional rotation from growth → dividend defensives during VIX 20-28. Entry at MA dip. EDGE-001 candidate.
-3. **Carry / Income — Defined-Risk Premium Collection** — elevated VIX + chop = favorable for premium selling. Use spreads only (defined risk), watch for trend-day blowouts.
+**TRADE IN THIS REGIME:**
+1. **Multi-Asset Macro** — Gold/GDX safe-haven trend trade (EDGE-002, PRIORITY). Macro Trend Trade rules: enter on intraday pullback, trailing stop, no fixed target.
+2. **Carry / Income** — Premium collection via defined-risk spreads (no naked short options). Elevated VIX = elevated premium. Watch for trend days that blow out short premium.
+3. **Swing Trading (Defensive)** — Energy sector rotation (XOM, CVX, OXY) on MA dips when sector outperforming SPY 2+ consecutive sessions (EDGE-001). Tight stops required.
 
 **AVOID IN THIS REGIME:**
-1. **Momentum + News** — worst environment (F&G=12, Risk-Off, Regime 3+6). Do not force momentum trades. Wait for Regime 1 or 2.
-2. **Index Futures / Leveraged ETFs (directional long)** — VIX 18-24 + Regime 3 = extreme volatility destroys leveraged positions. AVOID until regime improves.
+1. **Momentum + News** — Current regime (F&G=12, Risk-Off) is worst environment. Do not force momentum trades. Wait for Regime 1 or 2.
+2. **Index Futures / Leveraged ETFs** — VIX 18-24 + Regime 3 = extreme volatility destroys leveraged positions. AVOID until regime improves. Max 2x leverage rule hard cap.
 
 **SPECIAL NOTES:**
-- ⚠️ **Earnings season ACTIVE** — avoid binary event options trades. Options for CARRY/HEDGE only (time decay, protective puts — no directional long calls).
-- ⚠️ **Mean Reversion requires catalyst confirmation** — PATTERN-001 active. All mean reversion LONGs must have a confirmed RESOLVED catalyst.
-- ⚠️ **Max 2x leverage rule** enforced on all leveraged instruments.
-- Gold macro trend trade designation **AVAILABLE** — activate when Zeta confirms regime each cycle.
+- ⚠️ **Earnings season active** — avoid binary event options plays; no directional long calls around earnings
+- ⚠️ **Mean Reversion: PATTERN-001 active** — confirm ALL downtrend catalyst resolutions before any mean-reversion submission
+- ⚠️ **Options in Regime 6** — carry/hedge structures ONLY (time decay, protective puts). No directional long calls.
+- 🏅 **Gold at $4,724** — macro safe haven thesis confirmed. Multi-Asset Macro is the desk's best-fit strategy in current regime.
+- ℹ️ PLAYBOOK has no confirmed plays yet (template only) — all active guidance derives from EDGES.md candidate observations and strategy-health regime notes.
 
 ---
 
@@ -66,22 +68,25 @@ Submitting a mean-reversion LONG where the downtrend driver (regulatory, tariff,
 
 **SUSPENDED:** None
 
-**WEAK (<40% win rate):** None _(all strategies at baseline health score 100; zero closed trades — no statistical data yet. Full health scoring begins Week 2, Apr 21.)_
+**WEAK (<40% win rate):** None (all strategies at baseline — zero closed trades as of 2026-04-13. Meaningful health scoring begins Week 2, ~Apr 21.)
 
-| Strategy | Status | Regime Fit (Current) | Key Note |
-|----------|--------|---------------------|----------|
-| Multi-Asset Macro | ACTIVE ✅ | ⭐⭐⭐⭐⭐ BEST | Gold thesis active — prioritize |
-| Carry / Income | ACTIVE ✅ | ⭐⭐⭐ Good | Use spreads, not naked shorts |
-| Swing Trading | ACTIVE ✅ | ⭐⭐⭐ OK (defensive only) | Tight stops required |
-| Mean Reversion | ACTIVE ⚠️ | ⭐⭐ Caution | PATTERN-001 enforced |
-| Options | ACTIVE ⚠️ | ⭐⭐ Hedge/Carry only | No directional longs, earnings season |
-| Momentum + News | ACTIVE 🚫 | ⭐ WORST fit | Do not trade in current regime |
-| Index Futures / Leveraged ETFs | ACTIVE 🚫 | ⭐ AVOID | Wait for regime improvement |
+**Strategy Regime Fit Summary (current Regime 3+6):**
+
+| Strategy | Regime Fit | Action |
+|----------|-----------|--------|
+| Multi-Asset Macro | ✅ BEST | Prioritize |
+| Carry / Income | ✅ Good | Active (defined-risk structures) |
+| Swing Trading | ⚠️ Caution | Defensive names only, tight stops |
+| Mean Reversion | ⚠️ Watch | PATTERN-001 enforcement mandatory |
+| Options | ⚠️ Restricted | Carry/hedge only, no directional |
+| Momentum + News | ❌ WORST | Do not activate |
+| Index Futures/Lev. ETFs | ❌ Avoid | Avoid until regime improves |
 
 ---
 
 ## DIGEST META
 
-Generated: 2026-04-13T21:00:00Z
+Generated: 2026-04-14T21:00:00Z
 Source sizes: PLAYBOOK (1.7kb), EDGES (4.3kb), LOSS_PATTERNS (1.9kb)
 Next full review: 2026-04-17 (Friday)
+_Digest authored by Agent Eta — Nightly Context Digest job_
